@@ -1,0 +1,35 @@
+{
+	"name" : "wedgesama/user-bundle",
+	"description" : "Symfony WSFormBundle",
+	"type" : "symfony-bundle",
+	"authors" : [{
+			"name" : "Benjamin Georgeault",
+			"email" : "wedgesama@gmail.com",
+			"homepage" : "https://github.com/WedgeSama"
+		}
+	],
+	"keywords" : [
+		"User management",
+		"user",
+		"blacklist",
+		"user group"
+	],
+	"homepage" : "https://github.com/WedgeSama/WSUserBundle",
+	"license" : [
+		"MIT"
+	],
+	"require" : {
+		"php" : ">=5.3.3",
+		"wedgesama/tools-bundle" : "dev-master",
+		"symfony/framework-bundle" : "~2.3",
+		"genemu/form-bundle" : "2.2.*",
+		"symfony/form" : "~2.3"
+	},
+	"autoload" : {
+		"psr-0" : {
+			"WS\\UserBundle" : ""
+		}
+	},
+	"target-dir" : "WS/UserBundle",
+	"minimum-stability" : "dev"
+}
