@@ -1,0 +1,7 @@
+form:
+    username: "Username:"
+    email: "Email:"
+    both: "Email or Username:"
+    pass: "Password:"
+    submit: "Login"
+    remember: "Remember me"

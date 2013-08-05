@@ -1,0 +1,4 @@
+services:
+    ws_user.user_provider:
+        class: WS\UserBundle\Provider\UserProvider
+        arguments: [ '@doctrine.orm.entity_manager', '%ws_user.user_class%', '%ws_user.security.login_by%' ]

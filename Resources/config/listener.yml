@@ -1,0 +1,6 @@
+services:
+    ws_user.register_listener:
+        class: WS\UserBundle\EventListener\RegisterListener
+        arguments: [ '@ws_user.user_tools', '@ws_tools.mailer', '@router', '@translator', '%ws_user.register.check_email%', '%ws_user.register.sender_email%' ]
+        tags:
+            - { name: kernel.event_subscriber }

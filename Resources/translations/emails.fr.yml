@@ -1,0 +1,11 @@
+ws_user_bundle:
+    register:
+        name: "Symfony"
+        subject: "Confirmation d'inscription"
+        body: |
+            Bonjour {{ username }} !
+
+            Pour activer votre compte, cliquez sur {{ url }}.
+
+            Cordialement,
+            L'équipe.

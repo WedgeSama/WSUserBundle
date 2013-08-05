@@ -1,0 +1,15 @@
+WSUserBundle_security_login:
+    pattern:   '%ws_user.security.path_login%'
+    defaults:  { _controller: 'WSUserBundle:Security:login' }
+    requirements:
+        _method:  GET
+
+WSUserBundle_security_login_check:
+    pattern:   '%ws_user.security.path_login_check%'
+    requirements:
+        _method:  POST
+
+WSUserBundle_security_logout:
+    pattern:   '%ws_user.security.path_logout%'
+    requirements:
+        _method:  GET

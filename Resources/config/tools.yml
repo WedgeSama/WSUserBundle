@@ -1,0 +1,6 @@
+services:
+    ws_user.user_tools:
+        class: WS\UserBundle\Tools\UserTools
+        arguments: [ '@service_container', '@security.encoder_factory', '@doctrine.orm.entity_manager', '@security.context', '@security.user_checker', '@security.authentication.session_strategy', '%ws_user.firewall_name%' ]
+        calls:
+            - [ initConfig ]

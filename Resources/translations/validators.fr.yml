@@ -1,0 +1,16 @@
+ws_user_bundle:
+    user:
+        username:
+            unique: "Le nom d'utilisateur existe déjà."
+            notBlank: "Entrer un nom d'utilisateur."
+        pass:
+            regex: "Doit contenir au moins un chiffre, une lettre minuscule et une lettre majuscule."
+            same: "Les mots de passes doivent être identiques."
+            notBlank: "Entrer un mot de passe."
+        email:
+            unique: "L'adresse e-mail existe déjà."
+            invalid: "\"{{ value }}\" n'est pas une adresse e-mail valide ou n'existe pas."
+            same: "Les adresses e-mails doivent être identiques."
+            notBlank: "Entrer une adresse e-mail."
+        accept: "Vous devez accepter les conditions générales d'utilisation."
+            
