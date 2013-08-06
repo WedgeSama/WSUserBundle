@@ -161,3 +161,31 @@ WSUserBundle_register:
     prefix:   /
 ```
 
+## Configuration
+
+``` yaml
+# app/config/config.yml
+ws_user:
+    user_class: "MyBundle:User" # required, the name of your user entity
+```
+
+``` yaml
+# app/config/security.yml
+security:
+    encoders:
+        WS\UserBundle\Model\UserInterface: sha512
+	
+	providers:
+        ws_userbundle:
+            id: ws_user.user_provider
+
+    firewalls:
+        main:
+            pattern: ^/
+            form_login:
+                provider: ws_userbundle
+                csrf_provider: form.csrf_provider
+            logout:
+                invalidate_session: false
+            anonymous:    true
+```
