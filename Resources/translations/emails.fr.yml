@@ -3,9 +3,20 @@ ws_user_bundle:
         name: "Symfony"
         subject: "Confirmation d'inscription"
         body: |
-            Bonjour {{ username }} !
+            Bonjour {{ username }},
 
             Pour activer votre compte, cliquez sur {{ url }}.
 
             Cordialement,
             L'équipe.
+    password:
+        ask:
+            name: "Symfony"
+            subject: "Réinitialisation de mot de passe"
+            body: |
+                Bonjour {{ username }},
+
+                Pour réinitialiser votre mot de passe, cliquez sur {{ url }}.
+    
+                Cordialement,
+                L'équipe.

@@ -159,6 +159,10 @@ WSUserBundle_security:
 WSUserBundle_register:
     resource: "@WSUserBundle/Resources/config/routing/register.yml"
     prefix:   /
+
+WSUserBundle_password:
+    resource: "@WSUserBundle/Resources/config/routing/password.yml"
+    prefix:   /
 ```
 
 ## Configuration

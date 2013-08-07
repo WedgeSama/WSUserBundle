@@ -20,6 +20,7 @@ class Configuration implements ConfigurationInterface {
         $this->addMain($rootNode);
         $this->addSecurity($rootNode);
         $this->addRegister($rootNode);
+        $this->addPassword($rootNode);
 
         return $treeBuilder;
     }
@@ -66,6 +67,7 @@ class Configuration implements ConfigurationInterface {
                 ->end()
             ->end();
     }
+    
     private function addRegister(ArrayNodeDefinition $rootNode) {
         $rootNode
             ->children()
@@ -89,6 +91,38 @@ class Configuration implements ConfigurationInterface {
                         ->end()
                         ->scalarNode('path_check')
                             ->defaultValue('/check-email')
+                        ->end()
+                        ->scalarNode('sender_email')
+                            ->defaultValue('no-replay@no-replay.com')
+                        ->end()
+                    ->end()
+                ->end()
+            ->end();
+    }
+    
+    private function addPassword(ArrayNodeDefinition $rootNode) {
+        $rootNode
+            ->children()
+                ->arrayNode('password_reset')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('form_class_ask')
+                            ->defaultValue('WS\\UserBundle\\Form\\PasswordAskType')
+                        ->end()
+                        ->scalarNode('form_class_reset')
+                            ->defaultValue('WS\\UserBundle\\Form\\PasswordResetType')
+                        ->end()
+                        ->scalarNode('path_ask')
+                            ->defaultValue('/ask-password')
+                        ->end()
+                        ->scalarNode('path_send')
+                            ->defaultValue('/send-email')
+                        ->end()
+                        ->scalarNode('path_reset')
+                            ->defaultValue('/enter-password')
+                        ->end()
+                        ->scalarNode('path_confirm')
+                            ->defaultValue('/confirm-password')
                         ->end()
                         ->scalarNode('sender_email')
                             ->defaultValue('no-replay@no-replay.com')

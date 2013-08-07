@@ -13,4 +13,6 @@ ws_user_bundle:
             same: "Les adresses e-mails doivent être identiques."
             notBlank: "Entrer une adresse e-mail."
         accept: "Vous devez accepter les conditions générales d'utilisation."
+    user_password:
+        ask: "Nom d'utilisateur ou adresse e-mail introuvable."
             

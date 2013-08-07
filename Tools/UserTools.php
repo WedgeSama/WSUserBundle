@@ -17,6 +17,8 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Security\Core\User\UserCheckerInterface;
 use Symfony\Component\Security\Http\Session\SessionAuthenticationStrategyInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormError;
 
 class UserTools {
 
@@ -113,6 +115,35 @@ class UserTools {
     }
 
     /**
+     * Create the password ask form
+     *
+     * @param array $options
+     * @return \WS\UserBundle\Form\PasswordAskType
+     */
+    public function createPasswordAskForm($options = array()) {
+        $formClass = $this->container->getParameter(
+                'ws_user.password_reset.form_class_ask');
+        
+        return $this->container->get('form.factory')
+            ->create(new $formClass(), null, $options);
+    }
+
+    /**
+     * Create the password reset form
+     *
+     * @param UserInterface $user
+     * @param array $options
+     * @return \WS\UserBundle\Form\PasswordResetType
+     */
+    public function createPasswordResetForm(UserInterface $user, $options = array()) {
+        $formClass = $this->container->getParameter(
+                'ws_user.password_reset.form_class_reset');
+        
+        return $this->container->get('form.factory')
+            ->create(new $formClass(), $user, $options);
+    }
+
+    /**
      * Save the user in the database. Update password if exist pass.
      * 
      * @param UserInterface $user
@@ -180,6 +211,58 @@ class UserTools {
                         'token' => $token, 
                         'enable' => $active 
                 ));
+    }
+
+    /**
+     * Get the user by username or email
+     *
+     * @return UserInterface
+     */
+    public function findByUsernameOrEmail($username) {
+        return filter_var($username, FILTER_VALIDATE_EMAIL) ? $this->repo->findOneByEmail(
+                $username) : $this->repo->findOneByUsername($username);
+    }
+
+    /**
+     * Validate the password ask form
+     * 
+     * @param FormInterface $form
+     * @return null|UserInterface
+     */
+    public function validPasswordAskForm(FormInterface $form) {
+        if (! $form->isValid())
+            return null;
+        
+        $data = $form->getData();
+        $user = $this->findByUsernameOrEmail($data['username']);
+        
+        if ($user)
+            return $user;
+        
+        $form->get('username')
+            ->addError(
+                new FormError(
+                        $this->container->get('translator')
+                            ->trans('ws_user_bundle.user_password.ask', array(), 
+                                'validators')));
+        
+        return null;
+    }
+
+    /**
+     * Check if token is expire
+     * 
+     * @param UserInterface $user
+     * @return boolean
+     */
+    public function tokenIsExpire(UserInterface $user) {
+        if ($user->getTokenExpireAt() != null && $user->getTokenExpireAt()
+            ->getTimestamp() > time())
+            return false;
+        else if ($user->getToken() != null)
+            return false;
+        
+        return true;
     }
 
 }

@@ -13,4 +13,6 @@
     <input type="hidden" name="_csrf_token" value="{{ csrf }}" />
 
     <button type="submit">{{ 'form.submit'|trans }}</button>
+    
+    <a href="{{ path('WSUserBundle_password_ask') }}">{{ 'password.label'|trans }}</a>
 </form>

@@ -3,6 +3,7 @@ form:
     email: "E-mail :"
     email_conf: "E-mail confirmation :"
     both: "E-mail/Nom d'utilisateur :"
+    pass_new: "Nouveau mot de passe :"
     pass: "Mot de passe :"
     pass_conf: "Confirmation :"
     submit: "Connexion"
@@ -13,3 +14,12 @@ register:
     submit: "S'inscrire"
     wait_email: "Un e-mail a été envoyé à l'adresse \"{{ email }}\". Il contient un lien pour activer votre compte."
     confirm: "Bienvenue {{ username }}, votre compte est maintenant activé."
+
+password:
+    label: "Mot de passe oublié ?"
+    confirm: "{{ username }}, votre mot de passe a été réinitialisé."
+    send: "Un e-mail de réinitialisation a été envoyé à votre adresse e-mail."
+    expired: "Votre demande de mot de passe a expiré."
+    submit:
+        reset: "Réinitialiser"
+        ask: "Envoyer"

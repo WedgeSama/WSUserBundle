@@ -43,7 +43,7 @@ class UserProvider implements UserProviderInterface {
                 $user = $this->repo->findOneByEmail($username);
                 break;
             case 'both' :
-                $user = filter_var($usernameOrEmail, FILTER_VALIDATE_EMAIL) ? $this->repo->findOneByEmail(
+                $user = filter_var($username, FILTER_VALIDATE_EMAIL) ? $this->repo->findOneByEmail(
                         $username) : $this->repo->findOneByUsername($username);
                 break;
             default :
