@@ -4,7 +4,7 @@ WSUserBundle
 A Symfony2 bundle. A complete User system:
 - Login/Logout
 - Registration
-- Password forget (in progress...)
+- Password forget
 - My account (in progress...)
 - Group system
 - Admin backend (in progress...)
