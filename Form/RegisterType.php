@@ -63,7 +63,7 @@ class RegisterType extends AbstractType {
             ->add('submit', 'submit', 
                 array(
                         'label' => 'register.submit', 
-                        'translation_domain' => 'WSUserBundle' 
+                        'translation_domain' => 'WSUserBundle'
                 ));
     }
 

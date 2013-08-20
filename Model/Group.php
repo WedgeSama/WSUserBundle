@@ -10,6 +10,7 @@
 namespace WS\UserBundle\Model;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @Orm\MappedSuperclass

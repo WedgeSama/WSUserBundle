@@ -113,10 +113,13 @@ class PasswordController extends Controller {
         if ($request->isMethod('POST')) {
             $form->bind($request);
             
-            if($form->isValid()) {
+            if ($form->isValid()) {
                 $userTools->deleteToken($user);
                 $userTools->saveUser($user);
                 $userTools->loginUser($user);
+                
+                $session = $request->getSession();
+                $session->set('ws_user.password.reset', true);
                 
                 return $this->redirect(
                         $this->generateUrl('WSUserBundle_password_confirm'));
@@ -135,6 +138,15 @@ class PasswordController extends Controller {
      * @Secure(roles="ROLE_USER")
      */
     public function confirmAction() {
+        $session = $this->getRequest()
+            ->getSession();
+        
+        if (! $session->has('ws_user.password.reset'))
+            throw $this->createNotFoundException(
+                    'Password not found in session.');
+        
+        $session->remove('ws_user.password.reset');
+        
         return $this->render('WSUserBundle:Password:confirm.html.twig', 
                 array(
                         'user' => $this->getUser() 

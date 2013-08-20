@@ -2,7 +2,7 @@
 /*
  * This file is part of the WSUserBundle package.
  *
- * (c) Benjamin Georgeault <https://github.com/WedgeSama/> 
+ * (c) Benjamin Georgeault <https://github.com/WedgeSama/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -92,6 +92,11 @@ class RegisterController extends Controller {
         $dispatcher->dispatch(WSUserEvents::REGISTER_CONFIRM, 
                 new UserEvent($user, $request));
         
+        $session = $this->getRequest()
+            ->getSession();
+        
+        $session->set('ws_user.register.check_email', true);
+        
         return $this->redirect(
                 $this->generateUrl('WSUserBundle_register_confirm'));
     }
@@ -102,6 +107,15 @@ class RegisterController extends Controller {
      * @Secure(roles="ROLE_USER")
      */
     public function confirmAction() {
+        $session = $this->getRequest()
+            ->getSession();
+        
+        if (! $session->has('ws_user.register.check_email'))
+            throw $this->createNotFoundException(
+                    'Register not found in session.');
+        
+        $session->remove('ws_user.register.check_email');
+        
         return $this->render('WSUserBundle:Register:confirm.html.twig', 
                 array(
                         'user' => $this->getUser() 
