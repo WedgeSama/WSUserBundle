@@ -7,12 +7,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace WS\UserBundle;
+namespace WS\UserBundle\Entity\Repository;
 
-final class WSUserEvents {
-    const REGISTER_START = 'ws_user.register.start';
-    
-    const REGISTER_REQUEST = 'ws_user.register.request';
-    
-    const REGISTER_CONFIRM = 'ws_user.register.confirm';
+use Doctrine\ORM\EntityRepository;
+
+/**
+ * UserRepository
+ */
+class UserRepository extends EntityRepository {
 }

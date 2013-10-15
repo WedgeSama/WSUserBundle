@@ -1,20 +1,9 @@
 WSUserBundle
 =============
 
-A Symfony2 bundle. A complete User system:
-- Login/Logout
-- Registration
-- Password forget
-- My account (in progress...)
-- Group system
+Add those features: 
 - Admin backend (in progress...)
 - Blacklist by IP (in progress...)
-
-#### Why I develop this bundle instead of use FOSUserBundle?
-I already use FOSUserBundle for some of my previous projects but 
-I want to now how the Symfony user system works. So I decided to 
-create this bundle to learn it.
-
 
 Documentation
 -------------

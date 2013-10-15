@@ -1,6 +1,6 @@
 {
 	"name" : "wedgesama/user-bundle",
-	"description" : "Symfony WSFormBundle",
+	"description" : "A Symfony2 bundle. A complete User system, extends of FOSUserBundle.",
 	"type" : "symfony-bundle",
 	"authors" : [{
 			"name" : "Benjamin Georgeault",
@@ -20,9 +20,8 @@
 	],
 	"require" : {
 		"php" : ">=5.3.3",
-		"wedgesama/tools-bundle" : "dev-master",
 		"symfony/framework-bundle" : "~2.3",
-		"genemu/form-bundle" : "2.2.*",
+		"friendsofsymfony/user-bundle" : "~2.0@dev",
 		"symfony/form" : "~2.3"
 	},
 	"autoload" : {

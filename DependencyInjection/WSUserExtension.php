@@ -21,22 +21,7 @@ class WSUserExtension extends Extension {
         $config = $this->processConfiguration($configuration, $configs);
         
         $loader = new Loader\YamlFileLoader($container, 
-                new FileLocator(__DIR__ . '/../Resources/config'));
-        $loader->load('form.yml');
-        $loader->load('provider.yml');
-        $loader->load('tools.yml');
-        $loader->load('listener.yml');
-        
-        foreach ($config as $key => $value) {
-            if (is_array($value)) {
-                foreach ($value as $subkey => $subvalue) {
-                    $container->setParameter('ws_user.' . $key . '.' . $subkey, 
-                            $subvalue);
-                }
-            } else {
-                $container->setParameter('ws_user.' . $key, $value);
-            }
-        }
+            new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader->load('services.yml');
     }
-
 }
