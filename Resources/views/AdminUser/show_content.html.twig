@@ -1,0 +1,91 @@
+{% trans_default_domain 'WSUserBundle' %}
+
+<dl>
+    <dt>{{ 'user.username'|trans }}</dt>
+    <dd>{{ user.username }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'user.email'|trans }}</dt>
+    <dd>{{ user.email }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'user.lastlogin'|trans }}</dt>
+    <dd>{% if user.lastLogin %}{{ user.lastLogin|date('Y-m-d H:i:s') }}{% endif %}</dd>
+</dl>
+<dl>
+    <dt>{{ 'user.enabled'|trans }}</dt>
+    <dd>{% if user.enabled %}{{ 'user.boolean.yes'|trans }}{% else %}{{ 'user.boolean.no'|trans }}{% endif %}</dd>
+</dl>
+<dl>
+    <dt>{{ 'user.locked'|trans }}</dt>
+    <dd>{% if user.locked %}{{ 'user.boolean.yes'|trans }}{% else %}{{ 'user.boolean.no'|trans }}{% endif %}</dd>
+</dl>
+<dl>
+    <dt>{{ 'user.expired'|trans }}</dt>
+    <dd>{% if user.expired %}{{ 'user.boolean.yes'|trans }}{% else %}{{ 'user.boolean.no'|trans }}{% endif %}</dd>
+</dl>
+<dl>
+    <dt>{{ 'user.expiresat'|trans }}</dt>
+    <dd>{% if user.expiresAt %}{{ user.expiresAt|date('Y-m-d H:i:s') }}{% endif %}</dd>
+</dl>
+<dl>
+    <dt>{{ 'user.passwordrequestedat'|trans }}</dt>
+    <dd>{% if user.passwordRequestedAt %}{{ user.passwordRequestedAt|date('Y-m-d H:i:s') }}{% endif %}</dd>
+</dl>
+<dl>
+    <dt>{{ 'user.credentialsexpired'|trans }}</dt>
+    <dd>{% if user.credentialsExpired %}{{ 'user.boolean.yes'|trans }}{% else %}{{ 'user.boolean.no'|trans }}{% endif %}</dd>
+</dl>
+<dl>
+    <dt>{{ 'user.credentialsexpiredat'|trans }}</dt>
+    <dd>{% if user.credentialsExpireAt %}{{ user.credentialsExpireAt|date('Y-m-d H:i:s') }}{% endif %}</dd>
+</dl>
+<dl>
+    <dt>{{ 'user.id'|trans }}</dt>
+    <dd>{{ user.id }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'user.lastname'|trans }}</dt>
+    <dd>{{ user.lastname }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'user.firstname'|trans }}</dt>
+    <dd>{{ user.firstname }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'user.birthat'|trans }}</dt>
+    <dd>{% if user.birthAt %}{{ user.birthAt|date('Y-m-d H:i:s') }}{% endif %}</dd>
+</dl>
+<dl>
+    <dt>{{ 'user.sexe'|trans }}</dt>
+    <dd>{{ user.sexe }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'user.registerat'|trans }}</dt>
+    <dd>{% if user.registerAt %}{{ user.registerAt|date('Y-m-d H:i:s') }}{% endif %}</dd>
+</dl>
+<dl>
+    <dt>{{ 'user.ip'|trans }}</dt>
+    <dd>{{ user.ip }}</dd>
+</dl>
+
+
+
+<ul class="record_actions">
+	<li>
+	   <a href="{{ path('ws_user_bundle_user_list') }}">
+	       {{ 'user.buttons.list'|trans }}
+	   </a>
+	</li>
+	<li>
+	   <a href="{{ path('ws_user_bundle_user_edit', { 'id': user.id }) }}">
+	       {{ 'user.buttons.edit'|trans }}
+	   </a>
+    </li>
+	<li>
+	   <a href="{{ path('ws_user_bundle_user_delete', { 'id': user.id }) }}">
+	       {{ 'user.buttons.delete'|trans }}
+	   </a>
+    </li>
+</ul>
+

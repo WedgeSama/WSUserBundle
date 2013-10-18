@@ -1,0 +1,79 @@
+user:
+    id: ID
+    username: Username
+    password: Password
+    email: Email
+    lastlogin: Last login at
+    enabled: Enabled
+    locked: Locked
+    expired: Expired
+    expiresat: Expire at
+    credentialsexpired: Credentials expired
+    credentialsexpiredat: Credentials expired at
+    passwordrequestedat: Password requested at
+    lastname: Last name
+    firstname: First name
+    registerat: Register at
+    birthat: Birthday
+    sexe: Gender
+    ip: IP Address
+    actions: Actions
+    boolean:
+        yes: Yes
+        no: No
+    buttons:
+        new: Create a user
+        show: Show
+        edit: Edit
+        delete: Delete
+        list: Back to the list
+
+form:
+    buttons:
+        user:
+            new: Create
+            edit: Update
+            delete: Delete
+
+email:
+    user:
+        create:
+            subject: Welcome %username% !
+            html: |
+                Hello %username%,<br /><br />
+                
+                Your id:<br />
+                <a href="%url%">%url%</a><br />
+                %username%<br />
+                %password%<br /><br />
+                
+                Regards,<br />
+                The team
+            text: |
+                Hello %username%,
+                
+                Your id:
+                %url%
+                %username%
+                %password%
+                
+                Regards,
+                The team
+        edit:
+            subject: "%username%, new password !"
+            html: |
+                Hello %username%,<br /><br />
+                
+                Your new password:<br />
+                %password%<br /><br />
+                
+                Regards,<br />
+                The team
+            text: |
+                Hello %username%,
+                
+                Your new password:
+                %password%
+                
+                Regards,
+                The team

@@ -2,8 +2,14 @@ WSUserBundle
 =============
 
 Add those features: 
-- Admin backend (in progress...)
-- Blacklist by IP (in progress...)
+- Admin backend
+    - Create, Edit, Delete a user
+    - Send an email with password when create a user or edit user's password
+    - Send an email when locked, enabled or expired user (in progress...)
+    - Manage groups and users (in progress...)
+- Blacklist by IP and/or account by time or forevery (in progress...)
+- Invitation (in progress...)
+- User list/profil visible for all (in progress...)
 
 Documentation
 -------------

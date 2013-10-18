@@ -27,36 +27,44 @@ class User extends BaseUser {
 
     /**
      *
-     * @var string @ORM\Column(name="nom", type="string", length=255, nullable=true)
+     * @var string @ORM\Column(name="lastname", type="string", length=255, nullable=true)
      */
-    protected $nom;
+    protected $lastname;
 
     /**
      *
-     * @var string @ORM\Column(name="prenom", type="string", length=255, nullable=true)
+     * @var string @ORM\Column(name="firstname", type="string", length=255, nullable=true)
      */
-    protected $prenom;
+    protected $firstname;
 
     /**
      *
-     * @var \DateTime @ORM\Column(name="naissance_at", type="datetime", nullable=true)
+     * @var \DateTime @ORM\Column(name="birth_at", type="datetime", nullable=true)
      */
-    protected $naissanceAt;
+    protected $birthAt;
 
     /**
      *
      * @var string @ORM\Column(name="sexe", type="string", length=1, nullable=true)
      */
     protected $sexe;
+    
+    /**
+     *
+     * @var string @ORM\Column(name="ip", type="string", length=40, nullable=true)
+     */
+    protected $ip;
 
     /**
      *
-     * @var \DateTime @ORM\Column(name="inscription_at", type="datetime")
+     * @var \DateTime @ORM\Column(name="register_at", type="datetime")
      */
-    protected $inscriptionAt;
+    protected $registerAt;
 
     public function __construct() {
         parent::__construct();
+        
+        $this->registerAt = new \DateTime();
     }
 
     /**
@@ -69,13 +77,13 @@ class User extends BaseUser {
     }
 
     /**
-     * Set nom
+     * Set lastname
      *
-     * @param string $nom            
+     * @param string $lastname           
      * @return User
      */
-    public function setNom($nom) {
-        $this->nom = $nom;
+    public function setLastname($lastname) {
+        $this->lastname = $lastname;
         
         return $this;
     }
@@ -85,50 +93,50 @@ class User extends BaseUser {
      *
      * @return string
      */
-    public function getNom() {
-        return $this->nom;
+    public function getLastname() {
+        return $this->lastname;
     }
 
     /**
-     * Set prenom
+     * Set firstname
      *
-     * @param string $prenom            
+     * @param string $firstname            
      * @return User
      */
-    public function setPrenom($prenom) {
-        $this->prenom = $prenom;
+    public function setFirstname($firstname) {
+        $this->firstname = $firstname;
         
         return $this;
     }
 
     /**
-     * Get prenom
+     * Get firstname
      *
      * @return string
      */
-    public function getPrenom() {
-        return $this->prenom;
+    public function getFirstname() {
+        return $this->firstname;
     }
 
     /**
-     * Set naissanceAt
+     * Set birthAt
      *
-     * @param \DateTime $naissanceAt            
+     * @param \DateTime $birthAt            
      * @return User
      */
-    public function setNaissanceAt($naissanceAt) {
-        $this->naissanceAt = $naissanceAt;
+    public function setBirthAt($birthAt) {
+        $this->birthAt = $birthAt;
         
         return $this;
     }
 
     /**
-     * Get naissanceAt
+     * Get birthAt
      *
      * @return \DateTime
      */
-    public function getNaissanceAt() {
-        return $this->naissanceAt;
+    public function getBirthAt() {
+        return $this->birthAt;
     }
 
     /**
@@ -153,23 +161,63 @@ class User extends BaseUser {
     }
 
     /**
-     * Set inscriptionAt
+     * Set registerAt
      *
-     * @param \DateTime $inscriptionAt            
+     * @param \DateTime $registerAt            
      * @return User
      */
-    public function setInscriptionAt($inscriptionAt) {
-        $this->inscriptionAt = $inscriptionAt;
+    public function setRegisterAt($registerAt) {
+        $this->registerAt = $registerAt;
         
         return $this;
     }
 
     /**
-     * Get inscriptionAt
+     * Get registerAt
      *
      * @return \DateTime
      */
-    public function getInscriptionAt() {
-        return $this->inscriptionAt;
+    public function getRegisterAt() {
+        return $this->registerAt;
     }
+
+    /**
+     * Get expiresAt
+     * 
+     * @return \DateTime
+     */
+    public function getExpiresAt() {
+        return $this->expiresAt;
+    }
+
+    /**
+     * Get credentialsExpireAt
+     * 
+     * @return \DateTime
+     */
+    public function getCredentialsExpireAt() {
+        return $this->credentialsExpireAt;
+    }
+    
+    /**
+     * Set ip
+     *
+     * @param string $ip
+     * @return User
+     */
+    public function setIp($ip) {
+        $this->ip = $ip;
+    
+        return $this;
+    }
+    
+    /**
+     * Get ip
+     *
+     * @return string
+     */
+    public function getIp() {
+        return $this->ip;
+    }
+
 }

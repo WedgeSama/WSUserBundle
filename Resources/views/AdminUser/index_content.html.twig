@@ -1,0 +1,77 @@
+{% trans_default_domain 'WSUserBundle' %}
+
+<table class="ws_user_bundle_user_list">
+	<thead>
+		<tr>
+			<th{% if users.isSorted('u.id') %} class="sorted"{% endif %}>
+                {{ knp_pagination_sortable(users, 'user.id'|trans, 'u.id') }}
+            </th>
+            <th{% if users.isSorted('u.username') %} class="sorted"{% endif %}>
+                {{ knp_pagination_sortable(users, 'user.username'|trans, 'u.username') }}
+            </th>
+            <th{% if users.isSorted('u.email') %} class="sorted"{% endif %}>
+                {{ knp_pagination_sortable(users, 'user.email'|trans, 'u.email') }}
+            </th>
+            <th{% if users.isSorted('u.registerAt') %} class="sorted"{% endif %}>
+                {{ knp_pagination_sortable(users, 'user.registerat'|trans, 'u.registerAt') }}
+            </th>
+            <th{% if users.isSorted('u.lastLogin') %} class="sorted"{% endif %}>
+                {{ knp_pagination_sortable(users, 'user.lastlogin'|trans, 'u.lastLogin') }}
+            </th>
+            <th{% if users.isSorted('u.enabled') %} class="sorted"{% endif %}>
+                {{ knp_pagination_sortable(users, 'user.enabled'|trans, 'u.enabled') }}
+            </th>
+            <th{% if users.isSorted('u.locked') %} class="sorted"{% endif %}>
+                {{ knp_pagination_sortable(users, 'user.locked'|trans, 'u.locked') }}
+            </th>
+            <th{% if users.isSorted('u.expired') %} class="sorted"{% endif %}>
+                {{ knp_pagination_sortable(users, 'user.expired'|trans, 'u.expired') }}
+            </th>
+            <th{% if users.isSorted('u.credentialsExpired') %} class="sorted"{% endif %}>
+                {{ knp_pagination_sortable(users, 'user.credentialsexpired'|trans, 'u.credentialsExpired') }}
+            </th>
+			<th>{{ 'user.actions'|trans }}</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for user in users %}
+		<tr>
+            <td>{{ user.id }}</td>
+            <td><a href="{{ path('ws_user_bundle_user_show', { 'id': user.id }) }}">{{ user.username }}</a></td>
+            <td>{{ user.email }}</td>
+            <td>{% if user.registerAt %}{{ user.registerAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+			<td>{% if user.lastLogin %}{{ user.lastLogin|date('Y-m-d H:i:s') }}{% endif %}</td>
+			<td>{% if user.enabled %}{{ 'user.boolean.yes'|trans }}{% else %}{{ 'user.boolean.no'|trans }}{% endif %}</td>
+			<td>{% if user.locked %}{{ 'user.boolean.yes'|trans }}{% else %}{{ 'user.boolean.no'|trans }}{% endif %}</td>
+			<td>{% if user.expired %}{{ 'user.boolean.yes'|trans }}{% else %}{{ 'user.boolean.no'|trans }}{% endif %}</td>
+			<td>{% if user.credentialsExpired %}{{ 'user.boolean.yes'|trans }}{% else %}{{ 'user.boolean.no'|trans }}{% endif %}</td>
+			<td>
+			<ul>
+				<li>
+					<a href="{{ path('ws_user_bundle_user_show', { 'id': user.id }) }}">
+					   {{ 'user.buttons.show'|trans }}
+                    </a>
+				</li>
+				<li>
+					<a href="{{ path('ws_user_bundle_user_edit', { 'id': user.id }) }}">
+					   {{ 'user.buttons.edit'|trans }}
+				    </a>
+				</li>
+				<li>
+				    <a href="{{ path('ws_user_bundle_user_delete', { 'id': user.id }) }}">
+				        {{ 'user.buttons.delete'|trans }}
+				    </a>
+				</li>
+			</ul>
+			</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+
+<ul>
+    <li>
+		<a href="{{ path('ws_user_bundle_user_new') }}">{{ 'user.buttons.new'|trans }}</a>
+	</li>
+</ul>
+

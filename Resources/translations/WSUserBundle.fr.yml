@@ -1,0 +1,79 @@
+user:
+    id: ID
+    username: "Nom d'utilisateur"
+    password: Mot de passe
+    email: "Adresse e-mail"
+    lastlogin: Dernière connexion
+    enabled: Activé
+    locked: Verrouillé
+    expired: Expiré
+    expiresat: Expire le
+    credentialsexpired: Mot de passe expiré
+    credentialsexpiredat: Mot de passe expiré le
+    passwordrequestedat: Mot de passe demandé le
+    lastname: Nom
+    firstname: Prénom
+    registerat: Date d'inscription
+    birthat: Date de naissance
+    sexe: Genre
+    ip: Adresse IP
+    actions: Actions
+    boolean:
+        yes: Oui
+        no: Non
+    buttons:
+        new: Ajouter un utilisateur
+        show: Voir
+        edit: Editer
+        delete: Supprimer
+        list: Retour à la liste
+
+form:
+    buttons:
+        user:
+            new: Créer
+            edit: Mettre à jour
+            delete: Supprimer
+
+email:
+    user:
+        create:
+            subject: Bienvenu %username% !
+            html: |
+                Bonjour %username%,<br /><br />
+                
+                Voici vos identifiants pour vous connecter:<br />
+                <a href="%url%">%url%</a><br />
+                %username%<br />
+                %password%<br /><br />
+                
+                Cordialement,<br />
+                L'équipe
+            text: |
+                Bonjour %username%,
+                
+                Voici vos identifiants pour vous connecter:
+                %url%
+                %username%
+                %password%
+                
+                Cordialement,
+                L'équipe
+        edit:
+            subject: "%username%, nouveau mot de passe !"
+            html: |
+                Bonjour %username%,<br /><br />
+                
+                Voici votre nouveau mot de passe:<br />
+                %password%<br /><br />
+                
+                Cordialement,<br />
+                L'équipe
+            text: |
+                Bonjour %username%,
+                
+                Voici votre nouveau mot de passe:
+                %password%
+                
+                Cordialement,
+                L'équipe
