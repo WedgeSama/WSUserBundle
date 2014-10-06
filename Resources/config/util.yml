@@ -1,0 +1,5 @@
+services:
+    ws_user.util.password_generator:
+        class: '%ws_user.util.password_generator.class%'
+        arguments:
+            - '@fos_user.util.token_generator'

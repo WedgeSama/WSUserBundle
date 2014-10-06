@@ -1,0 +1,11 @@
+parameters:
+    ws_user.mailer.class: WS\UserBundle\Mailer\Mailer
+
+services:
+    ws_user.mailer:
+        class: '%ws_user.mailer.class%'
+        arguments:
+            - '@mailer'
+            - '@twig'
+            - '@router'
+            - '%ws_user.user.emails%'

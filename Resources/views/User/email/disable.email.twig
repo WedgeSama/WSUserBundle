@@ -1,0 +1,15 @@
+{% trans_default_domain 'WSUserBundle' %}
+
+{% block subject %}{{ 'email.user.disable.subject'|trans({'%username%': user.username}) }}{% endblock subject %}
+
+{% block body_html %}
+<html>
+<body>
+	{{ 'email.user.disable.html'|trans({'%username%': user.username}) }}
+</body>
+</html>
+{% endblock body_html %}
+
+{% block body_text %}
+{{ 'email.user.disable.text'|trans({'%username%': user.username}) }}
+{% endblock body_text %}

@@ -1,79 +1,178 @@
-user:
-    id: ID
-    username: "Nom d'utilisateur"
-    password: Mot de passe
-    email: "Adresse e-mail"
-    lastlogin: Dernière connexion
-    enabled: Activé
-    locked: Verrouillé
-    expired: Expiré
-    expiresat: Expire le
-    credentialsexpired: Mot de passe expiré
-    credentialsexpiredat: Mot de passe expiré le
-    passwordrequestedat: Mot de passe demandé le
-    lastname: Nom
-    firstname: Prénom
-    registerat: Date d'inscription
-    birthat: Date de naissance
-    sexe: Genre
-    ip: Adresse IP
-    actions: Actions
-    boolean:
-        yes: Oui
-        no: Non
-    buttons:
-        new: Ajouter un utilisateur
-        show: Voir
-        edit: Editer
-        delete: Supprimer
-        list: Retour à la liste
+flash:
+    user:
+        new:
+            completed: Utilisateur "%username%" créé avec succès !
+            error: Erreur de création de l'utilisateur.
+        edit:
+            completed: Utilisateur "%username%" édité avec succès !
+            error: Erreur d'édition de l'utilisateur.
+        delete:
+            completed: L'utilisateur "%username% a été supprimé.
+            error: Erreur de suppression de l'utilisateur.
+        password:
+            completed: Mot de passe de "%username% changé avec succès !
+            error: Erreur de changement du mot de passe.
+entity:
+    user:
+        id: ID
+        username: "Nom d'utilisateur"
+        password: Mot de passe
+        email: "Adresse e-mail"
+        lastlogin: Dernière connexion
+        enabled: Activé
+        locked: Verrouillé
+        expired: Expiré
+        expiresat: Expire le
+        credentialsexpired: Mot de passe expiré
+        credentialsexpiredat: Mot de passe expiré le
+        passwordrequestedat: Mot de passe demandé le
+        lastname: Nom
+        firstname: Prénom
+        registerat: Date d'inscription
+        birthat: Date de naissance
+        ip: Adresse IP
 
-form:
-    buttons:
-        user:
-            new: Créer
-            edit: Mettre à jour
-            delete: Supprimer
+links:
+    user:
+        index: Retour à la liste
+        show: Voir l'utilisateur
+        new: Ajouter un utilisateur
+        edit: Editer l'utilisateur
+    group:
+        list: Retour à la liste
+        show: Voir
+        new: Ajouter un group
+        edit: Editer
+
+buttons:
+    user:
+        new: Créer
+        edit: Mettre à jour
+        delete: Delete
+        password: Change password
+
+tables:
+    actions: Actions
+
+'Account has expired.': Le compte a expiré.
+'Authentication credentials could not be found.': Authentication credentials could not be found.
+'Authentication request could not be processed due to a system problem.': Erreur système. Impossible de se connecter.
+'Invalid credentials.': Identifiants invalides.
+'Cookie has already been used by someone else.': Le cookie est déjà utilisé.
+'Credentials have expired.': Identifiants expirés.
+'Account is disabled.': Compte désactivé.
+'Not privileged to request the resource.': Droits requis pour accéder à la ressource.
+'Invalid CSRF token.': Jeton CSRF invalide.
+'Account is locked.': Compte bloqué.
+'Digest nonce has expired.': Digest nonce has expired.
+'No authentication provider found to support the authentication token.': No authentication provider found to support the authentication token.
+'No session available, it either timed out or cookies are not enabled.': No session available, it either timed out or cookies are not enabled.
+'No token could be found.': Aucun jeton trouvé.
+'Username could not be found.': Le nom d'utilisateur "%username%" n'a pas pu être trouvé.
 
 email:
     user:
-        create:
+        new:
             subject: Bienvenu %username% !
             html: |
                 Bonjour %username%,<br /><br />
-                
+
                 Voici vos identifiants pour vous connecter:<br />
                 <a href="%url%">%url%</a><br />
                 %username%<br />
                 %password%<br /><br />
-                
+
                 Cordialement,<br />
                 L'équipe
             text: |
                 Bonjour %username%,
-                
+
                 Voici vos identifiants pour vous connecter:
                 %url%
                 %username%
                 %password%
-                
+
                 Cordialement,
                 L'équipe
         edit:
-            subject: "%username%, nouveau mot de passe !"
+            subject: "%username%, édition de votre profil !"
             html: |
                 Bonjour %username%,<br /><br />
-                
-                Voici votre nouveau mot de passe:<br />
-                %password%<br /><br />
-                
+
+                Un administrateur a édité votre profil.<br /><br />
+
                 Cordialement,<br />
                 L'équipe
             text: |
                 Bonjour %username%,
-                
+
+                Un administrateur a édité votre profil.
+
+                Cordialement,
+                L'équipe
+        password:
+            subject: "%username%, nouveau mot de passe !"
+            html: |
+                Bonjour %username%,<br /><br />
+
+                Voici votre nouveau mot de passe:<br />
+                %password%<br /><br />
+
+                Cordialement,<br />
+                L'équipe
+            text: |
+                Bonjour %username%,
+
                 Voici votre nouveau mot de passe:
                 %password%
-                
+
+                Cordialement,
+                L'équipe
+        delete:
+            subject: "%username%, suppression de compte"
+            html: |
+                Bonjour %username%,<br /><br />
+
+                Votre compte a été supprimé.<br /><br />
+
+                Cordialement,<br />
+                L'équipe
+            text: |
+                Bonjour %username%,
+
+                Votre compte a été supprimé.
+
+                Cordialement,
+                L'équipe
+        disable:
+            subject: "%username%, compte désactivé"
+            html: |
+                Bonjour %username%,<br /><br />
+
+                Votre compte a été désactivé.<br /><br />
+
+                Cordialement,<br />
+                L'équipe
+            text: |
+                Bonjour %username%,
+
+                Votre compte a été désactivé.
+
+                Cordialement,
+                L'équipe
+        blocked:
+            subject: "%username%, compte bloqué"
+            html: |
+                Bonjour %username%,<br /><br />
+
+                Votre compte a été bloqué.<br /><br />
+
+                Cordialement,<br />
+                L'équipe
+            text: |
+                Bonjour %username%,
+
+                Votre compte a été bloqué.
+
                 Cordialement,
                 L'équipe

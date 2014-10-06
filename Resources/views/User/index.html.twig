@@ -1,5 +1,6 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
 {% block fos_user_content %}
-{% include "WSUserBundle:AdminUser:show_content.html.twig" %}
+{% include "WSUserBundle:User:index_content.html.twig" %}
+{{ knp_pagination_render(users) }}
 {% endblock fos_user_content %}

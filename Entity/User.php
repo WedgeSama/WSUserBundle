@@ -9,59 +9,47 @@
  */
 namespace WS\UserBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 
 /**
- * @ORM\MappedSuperclass
+ * User entity with some common fields.
+ *
+ * @author Benjamin Georgeault <github@wedgesama.fr>
  */
-class User extends BaseUser {
-
+abstract class User extends BaseUser
+{
     /**
-     *
-     * @var integer @ORM\Column(name="id", type="integer")
-     *      @ORM\Id
-     *      @ORM\GeneratedValue(strategy="AUTO")
+     * @var integer
      */
     protected $id;
 
     /**
-     *
-     * @var string @ORM\Column(name="lastname", type="string", length=255, nullable=true)
+     * @var string
      */
-    protected $lastname;
+    protected $lastName;
 
     /**
-     *
-     * @var string @ORM\Column(name="firstname", type="string", length=255, nullable=true)
+     * @var string
      */
-    protected $firstname;
+    protected $firstName;
 
     /**
-     *
-     * @var \DateTime @ORM\Column(name="birth_at", type="datetime", nullable=true)
+     * @var \DateTime
      */
-    protected $birthAt;
-
-    /**
-     *
-     * @var string @ORM\Column(name="sexe", type="string", length=1, nullable=true)
-     */
-    protected $sexe;
+    protected $registerAt;
     
     /**
-     *
-     * @var string @ORM\Column(name="ip", type="string", length=40, nullable=true)
+     * @var string
      */
     protected $ip;
 
     /**
-     *
-     * @var \DateTime @ORM\Column(name="register_at", type="datetime")
+     * @var \DateTime
      */
-    protected $registerAt;
+    protected $birthAt;
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         
         $this->registerAt = new \DateTime();
@@ -72,92 +60,55 @@ class User extends BaseUser {
      *
      * @return integer
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
     /**
-     * Set lastname
+     * Set last name
      *
-     * @param string $lastname           
+     * @param string $lastName
      * @return User
      */
-    public function setLastname($lastname) {
-        $this->lastname = $lastname;
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
         
         return $this;
     }
 
     /**
-     * Get nom
+     * Get last name
      *
      * @return string
      */
-    public function getLastname() {
-        return $this->lastname;
+    public function getLastName()
+    {
+        return $this->lastName;
     }
 
     /**
-     * Set firstname
+     * Set first name
      *
-     * @param string $firstname            
+     * @param string $firstName
      * @return User
      */
-    public function setFirstname($firstname) {
-        $this->firstname = $firstname;
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
         
         return $this;
     }
 
     /**
-     * Get firstname
+     * Get first name
      *
      * @return string
      */
-    public function getFirstname() {
-        return $this->firstname;
-    }
-
-    /**
-     * Set birthAt
-     *
-     * @param \DateTime $birthAt            
-     * @return User
-     */
-    public function setBirthAt($birthAt) {
-        $this->birthAt = $birthAt;
-        
-        return $this;
-    }
-
-    /**
-     * Get birthAt
-     *
-     * @return \DateTime
-     */
-    public function getBirthAt() {
-        return $this->birthAt;
-    }
-
-    /**
-     * Set sexe
-     *
-     * @param string $sexe            
-     * @return User
-     */
-    public function setSexe($sexe) {
-        $this->sexe = $sexe;
-        
-        return $this;
-    }
-
-    /**
-     * Get sexe
-     *
-     * @return string
-     */
-    public function getSexe() {
-        return $this->sexe;
+    public function getFirstName()
+    {
+        return $this->firstName;
     }
 
     /**
@@ -166,7 +117,8 @@ class User extends BaseUser {
      * @param \DateTime $registerAt            
      * @return User
      */
-    public function setRegisterAt($registerAt) {
+    public function setRegisterAt($registerAt)
+    {
         $this->registerAt = $registerAt;
         
         return $this;
@@ -177,7 +129,8 @@ class User extends BaseUser {
      *
      * @return \DateTime
      */
-    public function getRegisterAt() {
+    public function getRegisterAt()
+    {
         return $this->registerAt;
     }
 
@@ -186,7 +139,8 @@ class User extends BaseUser {
      * 
      * @return \DateTime
      */
-    public function getExpiresAt() {
+    public function getExpiresAt()
+    {
         return $this->expiresAt;
     }
 
@@ -195,7 +149,8 @@ class User extends BaseUser {
      * 
      * @return \DateTime
      */
-    public function getCredentialsExpireAt() {
+    public function getCredentialsExpireAt()
+    {
         return $this->credentialsExpireAt;
     }
     
@@ -205,7 +160,8 @@ class User extends BaseUser {
      * @param string $ip
      * @return User
      */
-    public function setIp($ip) {
+    public function setIp($ip)
+    {
         $this->ip = $ip;
     
         return $this;
@@ -216,8 +172,31 @@ class User extends BaseUser {
      *
      * @return string
      */
-    public function getIp() {
+    public function getIp()
+    {
         return $this->ip;
     }
+
+    /**
+     * Set date of birth.
+     *
+     * @param \DateTime $birthAt
+     */
+    public function setBirthAt($birthAt)
+    {
+        $this->birthAt = $birthAt;
+    }
+
+    /**
+     * Get date of birth.
+     *
+     * @return \DateTime
+     */
+    public function getBirthAt()
+    {
+        return $this->birthAt;
+    }
+
+
 
 }

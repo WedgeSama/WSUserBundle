@@ -1,0 +1,35 @@
+ws_user_user_list:
+    pattern:  /
+    defaults: { _controller: "WSUserBundle:User:index" }
+    requirements:
+        _method:  GET
+
+ws_user_user_new:
+    pattern:  /new
+    defaults: { _controller: "WSUserBundle:User:new" }
+    requirements:
+        _method:  GET|POST
+
+ws_user_user_show:
+    pattern:  /{username}/show
+    defaults: { _controller: "WSUserBundle:User:show" }
+    requirements:
+        _method:  GET
+
+ws_user_user_edit:
+    pattern:  /{username}/edit
+    defaults: { _controller: "WSUserBundle:User:edit" }
+    requirements:
+        _method:  GET|POST|PUT
+
+ws_user_user_delete:
+    pattern:  /{username}/delete
+    defaults: { _controller: "WSUserBundle:User:delete" }
+    requirements:
+        _method:  DELETE|POST
+
+ws_user_user_password:
+    pattern:  /{username}/password
+    defaults: { _controller: "WSUserBundle:User:password" }
+    requirements:
+        _method:  POST

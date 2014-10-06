@@ -12,41 +12,46 @@ namespace WS\UserBundle\EventListener;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\UserEvent;
 use FOS\UserBundle\Model\UserManagerInterface;
-use FOS\UserBundle\Model\UserInterface;
+use WS\UserBundle\Entity\User;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\Security\Http\SecurityEvents;
 
-class IpListener implements EventSubscriberInterface {
+/**
+ * @author Benjamin Georgeault <github@wedgesama.fr>
+ */
+class IpListener implements EventSubscriberInterface
+{
+    protected $um;
 
-    protected $userManager;
-
-    public function __construct(UserManagerInterface $userManager) {
-        $this->userManager = $userManager;
+    public function __construct(UserManagerInterface $um)
+    {
+        $this->um = $um;
     }
 
-    public static function getSubscribedEvents() {
+    public static function getSubscribedEvents()
+    {
         return array(
-                FOSUserEvents::SECURITY_IMPLICIT_LOGIN => 'onImplicitLogin', 
-                SecurityEvents::INTERACTIVE_LOGIN => 'onSecurityInteractiveLogin' 
+            FOSUserEvents::SECURITY_IMPLICIT_LOGIN => 'onImplicitLogin',
+            SecurityEvents::INTERACTIVE_LOGIN => 'onSecurityInteractiveLogin',
         );
     }
 
-    public function onImplicitLogin(UserEvent $event) {
-        $user = $event->getUser();
-        
-        $user->setIp($_SERVER['REMOTE_ADDR']);
-        $this->userManager->updateUser($user);
+    public function onImplicitLogin(UserEvent $event)
+    {
+        $this->updateIp($event->getUser());
     }
 
-    public function onSecurityInteractiveLogin(InteractiveLoginEvent $event) {
-        $user = $event->getAuthenticationToken()
-            ->getUser();
-        
-        if ($user instanceof UserInterface) {
+    public function onSecurityInteractiveLogin(InteractiveLoginEvent $event)
+    {
+        $this->updateIp($event->getAuthenticationToken()->getUser());
+    }
+
+    private function updateIp($user)
+    {
+        if ($user instanceof User) {
             $user->setIp($_SERVER['REMOTE_ADDR']);
-            $this->userManager->updateUser($user);
+            $this->um->updateUser($user);
         }
     }
-
 }

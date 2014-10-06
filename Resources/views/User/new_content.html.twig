@@ -1,0 +1,13 @@
+{% trans_default_domain 'WSUserBundle' %}
+
+{{ form_start(form) }}
+    {{ form_row(form) }}
+    <button type="submit">{{ 'buttons.user.new'|trans }}</button>
+{{ form_end(form) }}
+
+<ul class="record_actions">
+	<li>
+        <a href="{{ path('ws_user_user_list') }}">{{ 'links.user.index'|trans }}</a>
+    </li>
+</ul>
+

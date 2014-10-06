@@ -15,7 +15,7 @@ user:
     firstname: First name
     registerat: Register at
     birthat: Birthday
-    sexe: Gender
+    gender: Gender
     ip: IP Address
     actions: Actions
     boolean:
@@ -29,6 +29,10 @@ user:
         list: Back to the list
 
 form:
+    type:
+        gender:
+            m: Male
+            f: Female
     buttons:
         user:
             new: Create

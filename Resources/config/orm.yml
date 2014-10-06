@@ -1,0 +1,12 @@
+parameters:
+    ws_user.user_manager.default.class: WS\UserBundle\Doctrine\UserManager
+
+services:
+    ws_user.user_manager:
+        class: '%ws_user.user_manager.default.class%'
+        arguments:
+            - '@security.encoder_factory'
+            - '@fos_user.util.username_canonicalizer'
+            - '@fos_user.util.email_canonicalizer'
+            - '@fos_user.entity_manager'
+            - '%fos_user.model.user.class%'

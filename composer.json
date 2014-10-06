@@ -1,10 +1,10 @@
 {
 	"name" : "wedgesama/user-bundle",
-	"description" : "A Symfony2 bundle. A complete User system, extends of FOSUserBundle.",
+	"description" : "A Symfony2 bundle. A complete User system, extends FOSUserBundle.",
 	"type" : "symfony-bundle",
 	"authors" : [{
 			"name" : "Benjamin Georgeault",
-			"email" : "wedgesama@gmail.com",
+			"email" : "github@wedgesama.fr",
 			"homepage" : "https://github.com/WedgeSama"
 		}
 	],
@@ -20,10 +20,10 @@
 	],
 	"require" : {
 		"php" : ">=5.3.3",
-		"wedgesama/tools-bundle" : "dev-master",
 		"symfony/framework-bundle" : "~2.3",
 		"friendsofsymfony/user-bundle" : "~2.0@dev",
-		"symfony/form" : "~2.3"
+		"symfony/form" : "~2.3",
+		"knplabs/knp-paginator-bundle" : "dev-master"
 	},
 	"autoload" : {
 		"psr-0" : {
@@ -31,5 +31,10 @@
 		}
 	},
 	"target-dir" : "WS/UserBundle",
-	"minimum-stability" : "dev"
+	"minimum-stability" : "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.1-dev"
+        }
+    }
 }

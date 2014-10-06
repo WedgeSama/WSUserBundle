@@ -1,0 +1,37 @@
+parameters:
+    ws_user.listener.ip.class: WS\UserBundle\EventListener\IpListener
+    ws_user.listener.flash.class: WS\UserBundle\EventListener\FlashListener
+    ws_user.listener.password.class: WS\UserBundle\EventListener\PasswordListener
+    ws_user.listener.mailer.class: WS\UserBundle\EventListener\MailerListener
+
+services:
+    ws_user.listener.ip:
+        class: '%ws_user.listener.ip.class%'
+        arguments:
+            - '@fos_user.user_manager'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    ws_user.listener.flash:
+        class: '%ws_user.listener.flash.class%'
+        arguments:
+            - '@session'
+            - '@translator'
+            - '%ws_user.security.allow_display_error%'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    ws_user.listener.password:
+        class: '%ws_user.listener.password.class%'
+        arguments:
+            - '@ws_user.util.password_generator'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    ws_user.listener.mailer:
+        class: '%ws_user.listener.mailer.class%'
+        arguments:
+            - '@ws_user.mailer'
+            - '%ws_user.user.emails%'
+        tags:
+            - { name: kernel.event_subscriber }

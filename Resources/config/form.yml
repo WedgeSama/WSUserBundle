@@ -1,0 +1,20 @@
+parameters:
+    ws_user.form.user_factory.class: WS\UserBundle\Form\Factory\UserFactory
+    ws_user.registration.form.type: WS\UserBundle\Form\Type\RegistrationFormType
+
+services:
+    ws_user.form.user_factory:
+        class: '%ws_user.form.user_factory.class%'
+        arguments:
+            - '@form.factory'
+            - '@router'
+            - '%fos_user.model.user.class%'
+            - '%ws_user.user.new.form%'
+            - '%ws_user.user.edit.form%'
+
+    ws_user.registration.form.type:
+        class: '%ws_user.registration.form.type%'
+        arguments:
+            - '%fos_user.model.user.class%'
+        tags:
+            - { name: form.type, alias: ws_user_registration }
