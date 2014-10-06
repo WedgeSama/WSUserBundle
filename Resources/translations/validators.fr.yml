@@ -1,0 +1,10 @@
+ws_user:
+    user:
+        lastName:
+            length:
+                min: "Votre nom doit faire au moins {{ limit }} caractères."
+                max: "Votre nom ne peut pas être plus long que {{ limit }} caractères."
+        firstName:
+            length:
+                min: "Votre prénom doit faire au moins {{ limit }} caractères."
+                max: "Votre prénom ne peut pas être plus long que {{ limit }} caractères."

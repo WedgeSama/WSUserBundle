@@ -1,0 +1,14 @@
+WS\UserBundle\Entity\User:
+    properties:
+        lastName:
+            - Length:
+                min: 0
+                max: 140
+                minMessage: ws_user.user.lastName.length.min
+                maxMessage: ws_user.user.lastName.length.max
+        firstName:
+            - Length:
+                min: 0
+                max: 140
+                minMessage: ws_user.user.firstName.length.min
+                maxMessage: ws_user.user.firstName.length.max
