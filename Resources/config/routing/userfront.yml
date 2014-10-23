@@ -1,0 +1,11 @@
+ws_user_userfront_list:
+    pattern:  /
+    defaults: { _controller: "WSUserBundle:UserFront:index" }
+    requirements:
+        _method:  GET
+
+ws_user_userfront_show:
+    pattern:  /{username}
+    defaults: { _controller: "WSUserBundle:UserFront:show" }
+    requirements:
+        _method:  GET

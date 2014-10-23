@@ -1,0 +1,80 @@
+{% trans_default_domain 'WSUserBundle' %}
+
+<dl>
+    <dt>{{ 'entity.user.username'|trans }}</dt>
+    <dd>{{ user.username }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'entity.user.email'|trans }}</dt>
+    <dd>{{ user.email }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'entity.user.lastlogin'|trans }}</dt>
+    <dd>{% if user.lastLogin %}{{ user.lastLogin|date('Y-m-d H:i:s') }}{% endif %}</dd>
+</dl>
+<dl>
+    <dt>{{ 'entity.user.enabled'|trans }}</dt>
+    <dd>{{ user.enabled }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'entity.user.locked'|trans }}</dt>
+    <dd>{{ user.locked }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'entity.user.expired'|trans }}</dt>
+    <dd>{{ user.expired }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'entity.user.expiresat'|trans }}</dt>
+    <dd>{{ user.expiresAt }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'entity.user.passwordrequestedat'|trans }}</dt>
+    <dd>{{ user.passwordRequestedAt }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'entity.user.credentialsexpired'|trans }}</dt>
+    <dd>{{ user.credentialsExpired }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'entity.user.credentialsexpiredat'|trans }}</dt>
+    <dd>{{ user.credentialsExpireAt }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'entity.user.id'|trans }}</dt>
+    <dd>{{ user.id }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'entity.user.lastname'|trans }}</dt>
+    <dd>{{ user.lastname }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'entity.user.firstname'|trans }}</dt>
+    <dd>{{ user.firstname }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'entity.user.birthat'|trans }}</dt>
+    <dd>{% if user.birthAt %}{{ user.birthAt|date('Y-m-d H:i:s') }}{% endif %}</dd>
+</dl>
+<dl>
+    <dt>{{ 'entity.user.registerat'|trans }}</dt>
+    <dd>{% if user.registerAt %}{{ user.registerAt|date('Y-m-d H:i:s') }}{% endif %}</dd>
+</dl>
+<dl>
+    <dt>{{ 'entity.user.ip'|trans }}</dt>
+    <dd>{{ user.ip }}</dd>
+</dl>
+<dl>
+    <dt>{{ 'entity.user.gender'|trans }}</dt>
+    <dd>
+        {% if user.gender %}{{ ('form.gender.' ~ user.gender)|trans }}{% endif %}
+    </dd>
+</dl>
+
+<ul class="record_actions">
+	<li>
+	   <a href="{{ path('ws_user_user_list') }}">
+	       {{ 'links.user.index'|trans }}
+	   </a>
+	</li>
+</ul>
