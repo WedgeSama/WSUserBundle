@@ -64,6 +64,12 @@
     <dt>{{ 'entity.user.ip'|trans }}</dt>
     <dd>{{ user.ip }}</dd>
 </dl>
+<dl>
+    <dt>{{ 'entity.user.gender'|trans }}</dt>
+    <dd>
+        {% if user.gender %}{{ ('form.gender.' ~ user.gender)|trans }}{% endif %}
+    </dd>
+</dl>
 
 <ul class="record_actions">
 	<li>
