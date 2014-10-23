@@ -9,7 +9,7 @@ Add those features:
     - Manage groups and users (in progress...)
 - Blacklist by IP and/or account by time or forevery (in progress...)
 - Invitation (in progress...)
-- User list/profil visible for all (in progress...)
+- User list/profil visible for all
 
 Documentation
 -------------
