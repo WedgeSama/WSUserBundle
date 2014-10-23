@@ -135,7 +135,7 @@ class UserController extends Controller
                 $dispatcher->dispatch(WSUserEvents::EDIT_COMPLETED, new UserEvent($user, $request));
 
                 return $this->redirect($this->generateUrl('ws_user_user_edit', array(
-                    'username' => $username
+                    'username' => $username,
                 )));
             }
 

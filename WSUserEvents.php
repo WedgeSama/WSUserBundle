@@ -14,8 +14,8 @@ namespace WS\UserBundle;
  *
  * @author Benjamin Georgeault <github@wedgesama.fr>
  */
-final class WSUserEvents {
-    
+final class WSUserEvents
+{
     /**
      * The SECURITY_ERROR_LOGIN is throw when an error occur during the login of user.
      */
