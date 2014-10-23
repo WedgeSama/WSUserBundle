@@ -41,16 +41,7 @@ class SecurityController extends BaseController
             // ADD EVENT DISPATCHER
             $dispatcher->dispatch(WSUserEvents::SECURITY_ERROR_LOGIN, new SecurityEvent($error, $request));
         }
-        // last username entered by the user
-        $lastUsername = (null === $session) ? '' : $session->get(SecurityContext::LAST_USERNAME);
 
-        $csrfToken = $this->container->has('form.csrf_provider')
-            ? $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate')
-            : null;
-
-        return $this->renderLogin(array(
-            'last_username' => $lastUsername,
-            'csrf_token' => $csrfToken,
-        ));
+        return $this->renderLogin(array());
     }
 }

@@ -1,0 +1,8 @@
+services:
+    ws.twig.security:
+        class: WS\UserBundle\Twig\Extension\SecurityExtension
+        arguments:
+            - '@form.csrf_provider'
+            - '@session'
+        tags:
+            - { name: twig.extension }

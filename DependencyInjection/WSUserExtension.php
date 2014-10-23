@@ -31,6 +31,7 @@ class WSUserExtension extends Extension
         $loader->load('form.yml');
         $loader->load('util.yml');
         $loader->load('mailer.yml');
+        $loader->load('twig.yml');
 
         // Security part.
         $container->setParameter('ws_user.security.allow_display_error', $config['security']['allow_display_error']);
