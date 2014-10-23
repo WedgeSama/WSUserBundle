@@ -31,6 +31,7 @@ entity:
         registerat: Date d'inscription
         birthat: Date de naissance
         ip: Adresse IP
+        gender: Sexe
 
 links:
     user:
@@ -50,6 +51,12 @@ buttons:
         edit: Mettre à jour
         delete: Delete
         password: Change password
+
+form:
+    gender:
+        m: Masculin
+        f: Féminin
+        o: Autre
 
 tables:
     actions: Actions

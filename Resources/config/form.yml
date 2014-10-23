@@ -1,6 +1,6 @@
 parameters:
     ws_user.form.user_factory.class: WS\UserBundle\Form\Factory\UserFactory
-    ws_user.registration.form.type: WS\UserBundle\Form\Type\RegistrationFormType
+    ws_user.form.type.gender.class: WS\UserBundle\Form\Type\GenderType
 
 services:
     ws_user.form.user_factory:
@@ -12,9 +12,7 @@ services:
             - '%ws_user.user.new.form%'
             - '%ws_user.user.edit.form%'
 
-    ws_user.registration.form.type:
-        class: '%ws_user.registration.form.type%'
-        arguments:
-            - '%fos_user.model.user.class%'
+    ws_user.form.type.gender:
+        class: '%ws_user.form.type.gender.class%'
         tags:
-            - { name: form.type, alias: ws_user_registration }
+            - { name: form.type, alias: ws_gender }

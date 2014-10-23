@@ -48,6 +48,11 @@ abstract class User extends BaseUser
      */
     protected $birthAt;
 
+    /**
+     * @var string
+     */
+    protected $gender;
+
     public function __construct()
     {
         parent::__construct();
@@ -197,6 +202,23 @@ abstract class User extends BaseUser
         return $this->birthAt;
     }
 
+    /**
+     * Set the gender.
+     *
+     * @param string $gender
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+    }
 
-
+    /**
+     * Get the gender.
+     *
+     * @return string
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
 }

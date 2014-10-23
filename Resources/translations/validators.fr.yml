@@ -8,3 +8,9 @@ ws_user:
             length:
                 min: "Votre prénom doit faire au moins {{ limit }} caractères."
                 max: "Votre prénom ne peut pas être plus long que {{ limit }} caractères."
+        birthAt:
+            date:
+                message: "Ceci n'est pas une date valide."
+        gender:
+            choice:
+                message: "Sexe invalide."

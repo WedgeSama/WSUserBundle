@@ -29,3 +29,7 @@ WS\UserBundle\Entity\User:
             type: datetime
             column: birth_at
             nullable: true
+        gender:
+            type: string
+            length: 1
+            nullable: true
